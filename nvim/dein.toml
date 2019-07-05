@@ -18,3 +18,15 @@ repo = 'neoclide/coc.nvim'
 merge = 0
 rev = 'release'
 
+[[plugins]]
+repo = 'altercation/vim-colors-solarized'
+
+[[plugins]]
+repo = 'airblade/vim-gitgutter'
+
+[[plugins]]
+repo = 'jreybert/vimagit'
+
+[[plugins]]
+repo = 'tpope/vim-fugitive'
+

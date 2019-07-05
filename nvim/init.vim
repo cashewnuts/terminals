@@ -94,6 +94,10 @@ nmap [h <Plug>GitGutterPrevHunk
 nmap <Leader>ga <Plug>GitGutterStageHunk  " git add (chunk)
 nmap <Leader>gu <Plug>GitGutterUndoHunk   " git undo (chunk)
 
+" ################ vimagit ##################
+" Open vimagit pane
+nnoremap <leader>gs :Magit<CR>       " git status
+
 " ################ COC Completion-with sources ##################
 " use <tab> for trigger completion and navigate to the next complete item
 function! s:check_back_space() abort
