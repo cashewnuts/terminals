@@ -23,7 +23,6 @@ if dein#load_state('~/.cache/dein')
 endif
 
 filetype plugin indent on
-syntax enable
 
 " General
 set number	" Show line numbers
@@ -31,7 +30,7 @@ set linebreak	" Break lines at word (requires Wrap lines)
 set showbreak=++ 	" Wrap-broken line prefix
 set textwidth=100	" Line wrap (number of cols)
 " set showmatch	" Highlight matching brace
-set spell	" Enable spell-checking
+set nospell	" Enable spell-checking
 set visualbell	" Use visual bell (no beeping)
 
 set hlsearch	" Highlight all search results
@@ -71,6 +70,29 @@ let NERDTreeAutoDeleteBuffer = 1
 
 " ################ CTRLP ##################
 let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
+
+" ################ vim-colors-solarized ##################
+" vim-colors-solarized
+syntax enable
+set background=dark
+colorscheme solarized
+
+" ################ vim-gitgutter ##################
+" Use fontawesome icons as signs
+let g:gitgutter_sign_added = '+'
+let g:gitgutter_sign_modified = '>'
+let g:gitgutter_sign_removed = '-'
+let g:gitgutter_sign_removed_first_line = '^'
+let g:gitgutter_sign_modified_removed = '<'
+" Update sign column every quarter second
+set updatetime=500
+" disable all default keymap
+let g:gitgutter_map_keys = 0
+" Hunk-add and hunk-revert for chunk staging
+nmap ]h <Plug>GitGutterNextHunk
+nmap [h <Plug>GitGutterPrevHunk
+nmap <Leader>ga <Plug>GitGutterStageHunk  " git add (chunk)
+nmap <Leader>gu <Plug>GitGutterUndoHunk   " git undo (chunk)
 
 " ################ COC Completion-with sources ##################
 " use <tab> for trigger completion and navigate to the next complete item
