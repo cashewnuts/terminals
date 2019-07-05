@@ -1,0 +1,4 @@
+{ 
+  "suggest.triggerAfterInsertEnter": true,
+  "suggest.snippetIndicator": "►"
+}
