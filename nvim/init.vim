@@ -71,6 +71,8 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 " Automatically delete the buffer of the file you just deleted with NerdTree:
 let NERDTreeAutoDeleteBuffer = 1
 
+noremap <leader>d :NERDTreeFind<cr>
+
 " ################ fzf ##################
 nnoremap <C-P> :Files<CR>
 nnoremap <C-g> :Rg<Cr>
