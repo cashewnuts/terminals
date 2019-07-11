@@ -30,7 +30,7 @@ set linebreak	" Break lines at word (requires Wrap lines)
 set showbreak=++ 	" Wrap-broken line prefix
 set textwidth=100	" Line wrap (number of cols)
 " set showmatch	" Highlight matching brace
-set nospell	" Enable spell-checking
+set spell	" Enable spell-checking
 set visualbell	" Use visual bell (no beeping)
 
 set hlsearch	" Highlight all search results
@@ -70,7 +70,8 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 let NERDTreeAutoDeleteBuffer = 1
 
 " ################ fzf ##################
-map <C-P> :Files<CR>
+nnoremap <C-P> :Files<CR>
+nnoremap <C-g> :Rg<Cr>
 
 " ################ vim-colors-solarized ##################
 " vim-colors-solarized
