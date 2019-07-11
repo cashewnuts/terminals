@@ -35,3 +35,6 @@ repo = 'jreybert/vimagit'
 [[plugins]]
 repo = 'tpope/vim-fugitive'
 
+
+[[plugins]]
+repo = 'tpope/vim-rhubarb'
