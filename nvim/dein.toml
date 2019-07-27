@@ -10,9 +10,6 @@ path = '~/.fzf'
 build = './install --all'
 
 [[plugins]]
-repo = 'junegunn/fzf.vim'
-
-[[plugins]]
 repo = 'vim-airline/vim-airline'
 
 [[plugins]]
