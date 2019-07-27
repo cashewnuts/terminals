@@ -105,7 +105,7 @@ alias bfg="java -jar ${HOME}/local/lib/bfg-1.13.0.jar"
 alias nord="nordvpn c jp"
 alias emacs="emacs -nw"
 
-source /usr/share/zsh-theme-powerlevel9k/powerlevel9k.zsh-theme
+source ${HOME}/.oh-my-zsh/custom/themes/powerlevel9k/powerlevel9k.zsh-theme
 POWERLEVEL9K_MODE='awesome-fontconfig'
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(os_icon dir status newline vcs)
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(root_indicator background_jobs public_ip vpn_ip)
