@@ -74,8 +74,10 @@ let NERDTreeAutoDeleteBuffer = 1
 noremap <leader>d :NERDTreeFind<cr>
 
 " ################ fzf ##################
-nnoremap <C-P> :Files<CR>
+nnoremap <C-p> :Files<CR>
+nnoremap <C-S-p> :GFiles<CR>
 nnoremap <C-g> :Rg<Cr>
+nnoremap <C-l> :Buffers<Cr>
 
 " ################ vim-colors-solarized ##################
 " vim-colors-solarized
