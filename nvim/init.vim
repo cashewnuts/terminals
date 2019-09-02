@@ -53,6 +53,12 @@ set backspace=indent,eol,start	" Backspace behaviour
 set mouse=a
 set lazyredraw
 
+nnoremap bn :bn<cr>
+nnoremap bp :bp<cr>
+nnoremap bd :bd<cr> 
+
+tnoremap <Esc> <C-\><C-n><CR>
+
 " terminal setting
 tnoremap <Esc> <C-\><C-n>
 tnoremap <expr> <C-R> '<C-\><C-N>"'.nr2char(getchar()).'pi'
@@ -156,4 +162,16 @@ nmap <silent> gr <Plug>(coc-references)
 
 " Use K to show documentation in preview window
 nnoremap <silent> K :call <SID>show_documentation()<CR>
+" Use <C-l> for trigger snippet expand.
+imap <C-l> <Plug>(coc-snippets-expand)
+
+" Use <C-j> for select text for visual placeholder of snippet.
+vmap <C-j> <Plug>(coc-snippets-select)
+
+" Use <C-j> for jump to next placeholder, it's default of coc.nvim
+let g:coc_snippet_next = '<c-j>'
+
+" Use <C-k> for jump to previous placeholder, it's default of coc.nvim
+let g:coc_snippet_prev = '<c-k>'
+
 

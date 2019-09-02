@@ -33,5 +33,16 @@ Hit prefix + I to fetch the plugin and source it. You should now be able to use 
 
 # vim (neovim)のプラグイン環境
 
+Install Coc Plugins
+
+```bash
+# Install neovim
+sudo npm i -g neovim
+
+# vim
+:CocInstall coc-tsserver coc-tslint coc-python coc-html coc-css coc-pairs coc-snippets coc-tabnine
+coc-git coc-emmet coc-json
+```
+
 # tmuxのプラグイン環境
 
