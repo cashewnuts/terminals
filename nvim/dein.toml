@@ -35,6 +35,24 @@ repo = 'jreybert/vimagit'
 [[plugins]]
 repo = 'tpope/vim-fugitive'
 
-
 [[plugins]]
 repo = 'tpope/vim-rhubarb'
+
+[[plugins]]
+repo = 'tpope/vim-surround'
+
+[[plugins]]
+repo = 'tc50cal/vim-terminal'
+
+[[plugins]]
+repo = 'kassio/neoterm'
+
+[[plugins]]
+repo = 'christoomey/vim-system-copy'
+
+[[plugins]]
+repo = 'leafgarland/typescript-vim'
+
+[[plugins]]
+repo = 'peitalin/vim-jsx-typescript'
+

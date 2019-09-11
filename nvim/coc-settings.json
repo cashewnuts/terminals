@@ -10,5 +10,8 @@
     "javascriptreact",
     "typescript",
     "typescriptreact"
+  ],
+  "workspace.ignoredFiletypes": [
+    "neoterm"
   ]
 }

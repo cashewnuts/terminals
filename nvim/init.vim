@@ -75,6 +75,14 @@ nnoremap <A-j> <C-w>j
 nnoremap <A-k> <C-w>k
 nnoremap <A-l> <C-w>l
 
+" turn hybrid line numbers on
+set number relativenumber
+augroup numbertoggle
+  autocmd!
+  autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
+  autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
+augroup END
+
 " When a file has been detected, automatically read it again.
 set autoread
 autocmd FocusGained * checktime
@@ -83,7 +91,7 @@ autocmd FocusGained * checktime
 let g:airline#extensions#tabline#enabled = 1
 
 " ################ NERDTREE ##################
-map <C-d> :NERDTreeToggle<CR>
+map <C-e> :NERDTreeToggle<CR>
 autocmd vimenter * NERDTree
 " Jump to the main window.
 autocmd VimEnter * wincmd p
@@ -92,8 +100,9 @@ let NERDTreeQuitOnOpen = 1
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 " Automatically delete the buffer of the file you just deleted with NerdTree:
 let NERDTreeAutoDeleteBuffer = 1
+let NERDTreeShowHidden=1
 
-noremap <leader>d :NERDTreeFind<cr>
+noremap <Leader>e :NERDTreeFind<cr>
 
 " ################ fzf ##################
 nnoremap <C-p> :Files<CR>
@@ -115,7 +124,7 @@ let g:gitgutter_sign_removed = '-'
 let g:gitgutter_sign_removed_first_line = '^'
 let g:gitgutter_sign_modified_removed = '<'
 " Update sign column every quarter second
-set updatetime=500
+set updatetime=1000
 " disable all default keymap
 let g:gitgutter_map_keys = 0
 " Hunk-add and hunk-revert for chunk staging
@@ -126,7 +135,10 @@ nmap <Leader>gu <Plug>GitGutterUndoHunk   " git undo (chunk)
 
 " ################ vimagit ##################
 " Open vimagit pane
-nnoremap <leader>gs :Magit<CR>       " git status
+nnoremap <Leader>gs :Magit<CR>       " git status
+
+" ################ neoterm ##################
+let g:neoterm_default_mod = ':botright'
 
 " ################ COC Completion-with sources ##################
 " use <tab> for trigger completion and navigate to the next complete item
@@ -162,6 +174,13 @@ nmap <silent> gr <Plug>(coc-references)
 
 " Use K to show documentation in preview window
 nnoremap <silent> K :call <SID>show_documentation()<CR>
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
+endfunction
 " Use <C-l> for trigger snippet expand.
 imap <C-l> <Plug>(coc-snippets-expand)
 
@@ -174,4 +193,22 @@ let g:coc_snippet_next = '<c-j>'
 " Use <C-k> for jump to previous placeholder, it's default of coc.nvim
 let g:coc_snippet_prev = '<c-k>'
 
+" Highlight symbol under cursor on CursorHold
+autocmd CursorHold * silent call CocActionAsync('highlight')
+
+" Remap for rename current word
+nmap <Leader>rn <Plug>(coc-rename)
+
+" Remap for format selected region
+xmap <Leader>f  <Plug>(coc-format-selected)
+nmap <Leader>f  <Plug>(coc-format-selected)
+
+" Coc-git
+" navigate chunks of current buffer
+nmap [g <Plug>(coc-git-prevchunk)
+nmap ]g <Plug>(coc-git-nextchunk)
+" show chunk diff at current position
+nmap gs <Plug>(coc-git-chunkinfo)
+" show commit contains current position
+nmap gc <Plug>(coc-git-commit)
 
