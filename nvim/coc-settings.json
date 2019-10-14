@@ -1,5 +1,6 @@
 {
   "prettier.requireConfig": true,
+  "prettier.tslintIntegration": true,
   "tslint.enable": true,
   "tslint.autoFixOnSave": true,
   "coc.preferences.formatOnSaveFiletypes": [
