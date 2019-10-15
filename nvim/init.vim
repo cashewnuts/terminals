@@ -128,10 +128,10 @@ set updatetime=1000
 " disable all default keymap
 let g:gitgutter_map_keys = 0
 " Hunk-add and hunk-revert for chunk staging
-nmap ]h <Plug>GitGutterNextHunk
-nmap [h <Plug>GitGutterPrevHunk
-nmap <Leader>ga <Plug>GitGutterStageHunk  " git add (chunk)
-nmap <Leader>gu <Plug>GitGutterUndoHunk   " git undo (chunk)
+nmap ]h <Plug>(GitGutterNextHunk)
+nmap [h <Plug>(GitGutterPrevHunk)
+nmap <Leader>ga <Plug>(GitGutterStageHunk)  " git add (chunk)
+nmap <Leader>gu <Plug>(GitGutterUndoHunk)   " git undo (chunk)
 
 " ################ vimagit ##################
 " Open vimagit pane
