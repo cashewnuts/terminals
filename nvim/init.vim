@@ -233,3 +233,7 @@ nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list
 nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
 
+" react setting for coc.nvim
+autocmd BufNewFile,BufRead *.tsx let b:tsx_ext_found = 1
+autocmd BufNewFile,BufRead *.tsx set filetype=typescript.tsx
+

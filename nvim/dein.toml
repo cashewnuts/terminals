@@ -54,5 +54,5 @@ repo = 'christoomey/vim-system-copy'
 repo = 'leafgarland/typescript-vim'
 
 [[plugins]]
-repo = 'peitalin/vim-jsx-typescript'
+repo = 'maxmellon/vim-jsx-pretty'
 
