@@ -5,6 +5,9 @@ repo = 'scrooloose/nerdtree'
 repo = 'Xuyuanp/nerdtree-git-plugin'
 
 [[plugins]]
+repo = 'scrooloose/nerdcommenter'
+
+[[plugins]]
 repo = 'junegunn/fzf'
 path = '~/.fzf'
 build = './install --all'
