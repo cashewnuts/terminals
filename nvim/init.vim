@@ -92,9 +92,6 @@ let g:airline#extensions#tabline#enabled = 1
 
 " ################ NERDTREE ##################
 map <C-e> :NERDTreeToggle<CR>
-autocmd vimenter * NERDTree
-" Jump to the main window.
-autocmd VimEnter * wincmd p
 let NERDTreeQuitOnOpen = 1
 " close vim if the only window left open is a NERDTree<Paste>
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
