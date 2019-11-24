@@ -1,0 +1,6 @@
+
+# Set pbcopy and pbpaste if xsel exists
+if which xsel >/dev/null 2>&1 ; then
+  alias pbcopy='xsel --clipboard --input'
+  alias pbpaste='xsel --clipboard --output'
+fi
