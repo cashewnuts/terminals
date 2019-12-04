@@ -88,7 +88,9 @@ set autoread
 autocmd FocusGained * checktime
 
 " ################ AIR LINE ##################
+let g:airline_theme='simple'
 let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#coc#enabled = 1
 
 " ################ NERDTREE ##################
 map <C-e> :NERDTreeToggle<CR>
@@ -168,6 +170,20 @@ nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
+
+let g:coc_enable_locationlist = 1
+
+" Remap keys for coc custom
+nmap <silent> <C-.> <Plug>(coc-fix-current)
+
+" Multi cursor
+nmap <expr> <silent> <C-d> <SID>select_current_word()
+function! s:select_current_word()
+  if !get(g:, 'coc_cursors_activated', 0)
+    return "\<Plug>(coc-cursors-word)"
+  endif
+  return "*\<Plug>(coc-cursors-word):nohlsearch\<CR>"
+endfunc
 
 " Use K to show documentation in preview window
 nnoremap <silent> K :call <SID>show_documentation()<CR>
