@@ -4,3 +4,10 @@ if which xsel >/dev/null 2>&1 ; then
   alias pbcopy='xsel --clipboard --input'
   alias pbpaste='xsel --clipboard --output'
 fi
+
+if which sfdx >/dev/null 2>&1 ; then
+  alias sfpush='sfdx force:source:push'
+  alias sflist='sfdx force:org:list'
+  alias sfolist='sfdx force:org:list'
+  alias sfulist='sfdx force:user:list'
+fi
