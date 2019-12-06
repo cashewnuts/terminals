@@ -70,7 +70,6 @@ ZSH_THEME=powerlevel10k/powerlevel10k
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
   git
-  ssh-agent
 )
 
 source $ZSH/oh-my-zsh.sh
