@@ -40,7 +40,7 @@ Install Coc Plugins
 sudo npm i -g neovim
 
 # vim
-:CocInstall coc-tsserver coc-tslint coc-python coc-html coc-css coc-pairs coc-snippets coc-tabnine
+:CocInstall coc-tsserver coc-tslint-plugin coc-python coc-html coc-css coc-pairs coc-snippets coc-tabnine
 coc-git coc-emmet coc-json
 ```
 
