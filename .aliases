@@ -1,3 +1,7 @@
+# File manager
+if which nautilus >/dev/null 2>&1 ; then
+  alias open='nautilus'
+fi
 
 # Set pbcopy and pbpaste if xsel exists
 if which xsel >/dev/null 2>&1 ; then
@@ -11,3 +15,9 @@ if which sfdx >/dev/null 2>&1 ; then
   alias sfolist='sfdx force:org:list'
   alias sfulist='sfdx force:user:list'
 fi
+
+passgen () {
+  local len=${1:-16}
+  cat /dev/urandom | tr -dc 'a-zA-Z0-9-!@#$%^&*()_+~' | fold -w "$len" | head -n 1
+}
+
