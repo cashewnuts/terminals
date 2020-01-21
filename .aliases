@@ -21,3 +21,5 @@ passgen () {
   cat /dev/urandom | LC_CTYPE=C tr -dc 'a-zA-Z0-9-!@#$%^&*()_+~=[]{}|<>/?' | fold -w "$len" | head -n 1
 }
 
+alias pwdc='pwd | pbcopy'
+alias cdp='cd $(pbpaste)'
