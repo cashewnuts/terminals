@@ -74,6 +74,9 @@ nnoremap <A-j> <C-w>j
 nnoremap <A-k> <C-w>k
 nnoremap <A-l> <C-w>l
 
+nnoremap <C-w><C-q> :wq<cr>
+nnoremap <C-q><C-q> :q<cr>
+
 " turn hybrid line numbers on
 set number relativenumber
 augroup numbertoggle
