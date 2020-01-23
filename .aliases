@@ -23,3 +23,4 @@ passgen () {
 
 alias pwdc='pwd | pbcopy'
 alias cdp='cd $(pbpaste)'
+alias k=kubectl
