@@ -116,27 +116,6 @@ syntax enable
 set background=dark
 colorscheme solarized
 
-" ################ vim-gitgutter ##################
-" Use fontawesome icons as signs
-let g:gitgutter_sign_added = '+'
-let g:gitgutter_sign_modified = '>'
-let g:gitgutter_sign_removed = '-'
-let g:gitgutter_sign_removed_first_line = '^'
-let g:gitgutter_sign_modified_removed = '<'
-" Update sign column every quarter second
-set updatetime=1000
-" disable all default keymap
-let g:gitgutter_map_keys = 0
-" Hunk-add and hunk-revert for chunk staging
-nmap ]h <Plug>(GitGutterNextHunk)
-nmap [h <Plug>(GitGutterPrevHunk)
-nmap <Leader>ga <Plug>(GitGutterStageHunk)  " git add (chunk)
-nmap <Leader>gu <Plug>(GitGutterUndoHunk)   " git undo (chunk)
-
-" ################ vimagit ##################
-" Open vimagit pane
-nnoremap <Leader>gs :Magit<CR>       " git status
-
 " ################ neoterm ##################
 let g:neoterm_default_mod = ':botright'
 

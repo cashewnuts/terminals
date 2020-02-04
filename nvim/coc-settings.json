@@ -26,5 +26,7 @@
   ],
   "workspace.ignoredFiletypes": [
     "neoterm"
-  ]
+  ],
+  "git.enableGutters": true,
+  "git.realtimeGutters": false
 }
