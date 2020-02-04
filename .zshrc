@@ -69,11 +69,17 @@ ZSH_THEME=powerlevel10k/powerlevel10k
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
+  # Basic plugin
   git
-  wp-cli
+  fzf
+  ripgrep
+  # Advanced
+  aws
   docker
   docker-compose
+  kubectl
   sfdx
+  wp-cli
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -119,7 +125,3 @@ export PATH="$HOME/.anyenv/bin:$PATH"
 if which anyenv >/dev/null 2>&1; then
   eval "$(anyenv init -)"
 fi
-
-# kubectl autocomplete
-source <(kubectl completion zsh)
-
