@@ -30,18 +30,6 @@ rev = 'release'
 repo = 'altercation/vim-colors-solarized'
 
 [[plugins]]
-repo = 'airblade/vim-gitgutter'
-
-[[plugins]]
-repo = 'jreybert/vimagit'
-
-[[plugins]]
-repo = 'tpope/vim-fugitive'
-
-[[plugins]]
-repo = 'tpope/vim-rhubarb'
-
-[[plugins]]
 repo = 'tpope/vim-surround'
 
 [[plugins]]
@@ -59,3 +47,7 @@ repo = 'leafgarland/typescript-vim'
 [[plugins]]
 repo = 'maxmellon/vim-jsx-pretty'
 
+
+[[plugins]]
+repo = 'mattn/emmet-vim'
+on_i = 1
