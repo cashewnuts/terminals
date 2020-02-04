@@ -33,12 +33,6 @@ repo = 'altercation/vim-colors-solarized'
 repo = 'tpope/vim-surround'
 
 [[plugins]]
-repo = 'tc50cal/vim-terminal'
-
-[[plugins]]
-repo = 'kassio/neoterm'
-
-[[plugins]]
 repo = 'christoomey/vim-system-copy'
 
 [[plugins]]
