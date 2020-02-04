@@ -70,6 +70,10 @@ ZSH_THEME=powerlevel10k/powerlevel10k
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
   git
+  wp-cli
+  docker
+  docker-compose
+  sfdx
 )
 
 source $ZSH/oh-my-zsh.sh
