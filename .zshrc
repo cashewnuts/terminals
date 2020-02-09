@@ -114,10 +114,6 @@ if [[ -f ~/.aliases  ]]; then
   source ~/.aliases
 fi
 
-if [[ -f ~/.profile  ]]; then
-  source ~/.profile
-fi
-
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 export PATH=$PATH:~/local/bin
