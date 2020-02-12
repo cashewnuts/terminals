@@ -1,9 +1,16 @@
 export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="/snap/bin:$PATH"
 
-if [ ! -S ~/.ssh/ssh_auth_sock ]; then
-  eval `ssh-agent`
-  ln -sf "$SSH_AUTH_SOCK" ~/.ssh/ssh_auth_sock
+ssh-add -l &>/dev/null
+if [ "$?" = 2 ]; then
+  test -r ~/.ssh-agent && \
+    eval "$(<~/.ssh-agent)" >/dev/null
+
+  ssh-add -l &>/dev/null
+  if [ "$?" = 2 ]; then
+    (umask 066; ssh-agent > ~/.ssh-agent)
+    eval "$(<~/.ssh-agent)" >/dev/null
+    ssh-add
+  fi
 fi
-export SSH_AUTH_SOCK=~/.ssh/ssh_auth_sock
-ssh-add -l > /dev/null || ssh-add
+
