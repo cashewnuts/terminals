@@ -38,10 +38,10 @@ Install Coc Plugins
 ```bash
 # Install neovim
 sudo npm i -g neovim
+pip install --user --upgrade pynvim
 
-# vim
-:CocInstall coc-tsserver coc-tslint-plugin coc-python coc-html coc-css coc-pairs coc-snippets coc-tabnine
-coc-git coc-emmet coc-json
+# In neovim window
+:CocInstall coc-tsserver coc-eslint coc-prettier coc-python coc-html coc-css coc-pairs coc-snippets coc-tabnine coc-git coc-emmet coc-json
 ```
 
 # tmuxのプラグイン環境

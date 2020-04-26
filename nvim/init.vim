@@ -238,6 +238,9 @@ command! -nargs=? Fold :call     CocAction('fold', <f-args>)
 " Add `:OI` command for organize imports of the current buffer.
 command! -nargs=0 OI   :call     CocAction('runCommand', 'editor.action.organizeImport')
 
+" Add `:Prettier` command
+command! -nargs=0 Prettier :CocCommand prettier.formatFile
+
 " Add status line support, for integration with other plugin, checkout `:h coc-status`
 set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 
