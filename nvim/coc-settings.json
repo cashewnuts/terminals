@@ -1,20 +1,6 @@
 {
   "prettier.requireConfig": true,
-  "prettier.tslintIntegration": true,
-  "prettier.eslintIntegration": true,
-  "tslint.enable": true,
-  "tslint.autoFixOnSave": true,
-  "tslint.jsEnable": true,
-  "tsserver": {
-    "npm": "/usr/local/bin/npm"
-  },
-  "editor.formatOnSave": false,
-  "[javascript]": {
-      "editor.formatOnSave": true
-  },
-  "[html]": {
-      "editor.formatOnSave": false
-  },
+  "tsserver.npm": "/usr/local/bin/npm",
   "coc.preferences.formatOnSaveFiletypes": [
     "css",
     "markdown",
