@@ -124,6 +124,7 @@ fi
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 export PATH=$PATH:~/local/bin
+export PATH=$PATH:~/.local/bin
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ -f ~/.p10k.zsh ]] && source ~/.p10k.zsh
@@ -132,3 +133,11 @@ export PATH="$HOME/.anyenv/bin:$PATH"
 if which anyenv >/dev/null 2>&1; then
   eval "$(anyenv init -)"
 fi
+
+# Wasienv
+export WASIENV_DIR="$HOME/.wasienv"
+[ -s "$WASIENV_DIR/wasienv.sh" ] && source "$WASIENV_DIR/wasienv.sh"
+
+# Wasmer
+export WASMER_DIR="$HOME/.wasmer"
+[ -s "$WASMER_DIR/wasmer.sh" ] && source "$WASMER_DIR/wasmer.sh"
