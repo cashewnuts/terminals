@@ -1,24 +1,21 @@
-if &compatible
-  set nocompatible
-endif
-" Add the dein installation directory into runtimepath
-set runtimepath+=~/.cache/dein/repos/github.com/Shougo/dein.vim
+" Specify a directory for plugins
+" - For Neovim: stdpath('data') . '/plugged'
+" - Avoid using standard Vim directory names like 'plugin'
+call plug#begin('~/.vim/plugged')
 
-if dein#load_state('~/.cache/dein')
-  call dein#begin('~/.cache/dein')
+" Make sure you use single quotes
 
-  call dein#add('~/.cache/dein/repos/github.com/Shougo/dein.vim')
+" Plugin outside ~/.vim/plugged with post-update hook
+Plug 'preservim/nerdtree'
+Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'joshdick/onedark.vim'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 
-  call dein#load_toml('~/.config/nvim/dein.toml')  
-
-  if !has('nvim')
-    call dein#add('roxma/nvim-yarp')
-    call dein#add('roxma/vim-hug-neovim-rpc')
-  endif
-
-  call dein#end()
-  call dein#save_state()
-endif
+" Initialize plugin system
+call plug#end()
 
 filetype plugin indent on
 
@@ -41,6 +38,7 @@ set expandtab	" Use spaces instead of tabs
 set shiftwidth=2	" Number of auto-indent spaces
 set smarttab	" Enable smart-tabs
 set softtabstop=2	" Number of spaces per Tab
+set tabstop=4   " Tab size equals to spacing
 
 "" Advanced
 set ruler	" Show row and column ruler information
@@ -110,11 +108,9 @@ nnoremap <A-p> :GFiles<CR>
 nnoremap <C-g> :Rg<Cr>
 nnoremap <C-l> :Buffers<Cr>
 
-" ################ vim-colors-solarized ##################
-" vim-colors-solarized
-syntax enable
-set background=dark
-colorscheme solarized
+" ################ vim-colors-onedark ##################
+syntax on
+colorscheme onedark
 
 " ################ neoterm ##################
 let g:neoterm_default_mod = ':botright'
@@ -265,4 +261,8 @@ nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
 " react setting for coc.nvim
 autocmd BufNewFile,BufRead *.tsx let b:tsx_ext_found = 1
 autocmd BufNewFile,BufRead *.tsx set filetype=typescript.tsx
+
+
+" ################ coc-go ##################
+autocmd BufWritePre *.go :silent call CocAction('runCommand', 'editor.action.organizeImport')
 
