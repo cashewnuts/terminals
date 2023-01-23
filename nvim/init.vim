@@ -143,6 +143,8 @@ nnoremap <C-l> :Buffers<Cr>
 let g:neoterm_default_mod = ':botright'
 
 " ################ COC Completion-with sources ##################
+let g:coc_global_extensions = ['coc-prettier', 'coc-pairs', 'coc-html', 'coc-git', 'coc-eslint', 'coc-tsserver', 'coc-rust-analyzer', 'coc-json']
+
 " Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
 " delays and poor user experience.
 set updatetime=500
@@ -175,7 +177,7 @@ inoremap <silent><expr> <c-space> coc#refresh()
 " Coc only does snippet and additional edit on confirm.
 inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
-" Use `[c` and `]c` to navigate diagnostics
+" Use to navigate diagnostics
 nmap <silent> [g <Plug>(coc-diagnostic-prev)
 nmap <silent> ]g <Plug>(coc-diagnostic-next)
 
