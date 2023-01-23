@@ -1,33 +1,61 @@
-if &compatible
-  set nocompatible
-endif
-" Add the dein installation directory into runtimepath
-set runtimepath+=~/.cache/dein/repos/github.com/Shougo/dein.vim
+" Specify a directory for plugins
+" - For Neovim: stdpath('data') . '/plugged'
+" - Avoid using standard Vim directory names like 'plugin'
+call plug#begin(stdpath('data') . '/plugged')
 
-if dein#load_state('~/.cache/dein')
-  call dein#begin('~/.cache/dein')
+Plug 'scrooloose/nerdtree'
+Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'ryanoasis/vim-devicons'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 
-  call dein#add('~/.cache/dein/repos/github.com/Shougo/dein.vim')
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'tpope/vim-surround'
+Plug 'christoomey/vim-system-copy'
+Plug 'leafgarland/typescript-vim'
+Plug 'maxmellon/vim-jsx-pretty'
+Plug 'mattn/emmet-vim'
+Plug 'joshdick/onedark.vim'
 
-  call dein#load_toml('~/.config/nvim/dein.toml')  
-
-  if !has('nvim')
-    call dein#add('roxma/nvim-yarp')
-    call dein#add('roxma/vim-hug-neovim-rpc')
-  endif
-
-  call dein#end()
-  call dein#save_state()
-endif
+" List ends here. Plugins become visible to Vim after this call.
+call plug#end()
 
 filetype plugin indent on
+
+
+" ################ Vim theme one ##################
+"Credit joshdick
+"Use 24-bit (true-color) mode in Vim/Neovim when outside tmux.
+"If you're using tmux version 2.2 or later, you can remove the outermost $TMUX check and use tmux's 24-bit color support
+"(see < http://sunaku.github.io/tmux-24bit-color.html#usage > for more information.)
+if (empty($TMUX))
+  if (has("nvim"))
+    "For Neovim 0.1.3 and 0.1.4 < https://github.com/neovim/neovim/pull/2198 >
+    let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+  endif
+  "For Neovim > 0.1.5 and Vim > patch 7.4.1799 < https://github.com/vim/vim/commit/61be73bb0f965a895bfb064ea3e55476ac175162 >
+  "Based on Vim patch 7.4.1770 (`guicolors` option) < https://github.com/vim/vim/commit/8a633e3427b47286869aa4b96f2bfc1fe65b25cd >
+  " < https://github.com/neovim/neovim/wiki/Following-HEAD#20160511 >
+  if (has("termguicolors"))
+    set termguicolors
+  endif
+endif
+
+let g:airline_theme='onedark'
+let g:ondark_terminal_italics = 1 " I love italic for comments
+let g:onedark_termcolors=256
+
+syntax on
+colorscheme onedark
 
 " ################ General ##################
 set number	" Show line numbers
 set linebreak	" Break lines at word (requires Wrap lines)
 set showbreak=++ 	" Wrap-broken line prefix
-set textwidth=100	" Line wrap (number of cols)
-" set showmatch	" Highlight matching brace
+set textwidth=120	" Line wrap (number of cols)
+set showmatch	" Highlight matching brace
 set spell	" Enable spell-checking
 set visualbell	" Use visual bell (no beeping)
 
@@ -41,6 +69,11 @@ set expandtab	" Use spaces instead of tabs
 set shiftwidth=2	" Number of auto-indent spaces
 set smarttab	" Enable smart-tabs
 set softtabstop=2	" Number of spaces per Tab
+set tabstop=4 " Number of visual spaces per TAB
+set nowrap      " Disable wrapping by default
+set splitbelow " Horizontal splits open below
+set splitright " Vertical splits open to the right
+set cmdheight=2 " Give more space for displaying messages
 
 "" Advanced
 set ruler	" Show row and column ruler information
@@ -110,12 +143,6 @@ nnoremap <A-p> :GFiles<CR>
 nnoremap <C-g> :Rg<Cr>
 nnoremap <C-l> :Buffers<Cr>
 
-" ################ vim-colors-solarized ##################
-" vim-colors-solarized
-syntax enable
-set background=dark
-colorscheme solarized
-
 " ################ neoterm ##################
 let g:neoterm_default_mod = ':botright'
 
@@ -153,8 +180,8 @@ inoremap <silent><expr> <c-space> coc#refresh()
 inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
 " Use `[c` and `]c` to navigate diagnostics
-nmap <silent> [c <Plug>(coc-diagnostic-prev)
-nmap <silent> ]c <Plug>(coc-diagnostic-next)
+nmap <silent> [g <Plug>(coc-diagnostic-prev)
+nmap <silent> ]g <Plug>(coc-diagnostic-next)
 
 " Remap keys for gotos
 nmap <silent> gd <Plug>(coc-definition)
@@ -165,17 +192,25 @@ nmap <silent> gr <Plug>(coc-references)
 let g:coc_enable_locationlist = 1
 
 " Remap keys for coc custom
-nmap <silent> <C-.> <Plug>(coc-fix-current)
-
-" Applying codeAction to the selected region.
+" Applying code actions to the selected code block
 " Example: `<leader>aap` for current paragraph
 xmap <leader>a  <Plug>(coc-codeaction-selected)
 nmap <leader>a  <Plug>(coc-codeaction-selected)
 
-" Remap keys for applying codeAction to the current line.
-nmap <leader>ac  <Plug>(coc-codeaction)
-" Apply AutoFix to problem on the current line.
+" Remap keys for applying code actions at the cursor position
+nmap <leader>ac  <Plug>(coc-codeaction-cursor)
+" Remap keys for apply code actions affect whole buffer
+nmap <leader>as  <Plug>(coc-codeaction-source)
+" Apply the most preferred quickfix action to fix diagnostic on the current line
 nmap <leader>qf  <Plug>(coc-fix-current)
+
+" Remap keys for applying refactor code actions
+nmap <silent> <leader>re <Plug>(coc-codeaction-refactor)
+xmap <silent> <leader>r  <Plug>(coc-codeaction-refactor-selected)
+nmap <silent> <leader>r  <Plug>(coc-codeaction-refactor-selected)
+
+" Run the Code Lens action on the current line
+nmap <leader>cl  <Plug>(coc-codelens-action)
 
 " Multi cursor
 nmap <expr> <silent> <C-d> <SID>select_current_word()
@@ -219,12 +254,17 @@ nmap <Leader>f  <Plug>(coc-format-selected)
 
 " Coc-git
 " navigate chunks of current buffer
-nmap [g <Plug>(coc-git-prevchunk)
-nmap ]g <Plug>(coc-git-nextchunk)
+nmap [c <Plug>(coc-git-prevchunk)
+nmap ]c <Plug>(coc-git-nextchunk)
 " show chunk diff at current position
 nmap gs <Plug>(coc-git-chunkinfo)
 " show commit contains current position
 nmap gc <Plug>(coc-git-commit)
+" create text object for git chunks
+omap ig <Plug>(coc-git-chunk-inner)
+xmap ig <Plug>(coc-git-chunk-inner)
+omap ag <Plug>(coc-git-chunk-outer)
+xmap ag <Plug>(coc-git-chunk-outer)
 
 " SignColumn color clear
 highlight clear SignColumn
@@ -265,4 +305,8 @@ nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
 " react setting for coc.nvim
 autocmd BufNewFile,BufRead *.tsx let b:tsx_ext_found = 1
 autocmd BufNewFile,BufRead *.tsx set filetype=typescript.tsx
+
+" golang settings
+" Add missing imports on save
+autocmd BufWritePre *.go :silent call CocAction('runCommand', 'editor.action.organizeImport')
 

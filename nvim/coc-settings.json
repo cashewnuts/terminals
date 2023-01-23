@@ -1,18 +1,13 @@
 {
-  "prettier.requireConfig": true,
   "tsserver.npm": "/usr/local/bin/npm",
-  "coc.preferences.formatOnSaveFiletypes": [
-    "css",
-    "markdown",
-    "Markdown",
-    "javascript",
-    "javascriptreact",
-    "typescript",
-    "typescriptreact"
-  ],
-  "workspace.ignoredFiletypes": [
-    "neoterm"
-  ],
-  "git.enableGutters": true,
-  "git.realtimeGutters": false
+  "[css][markdown][javascript][javascriptreact][typescript][typescriptreact]": {
+    "coc.preferences.formatOnSave": true
+  },
+  "[rust]": {
+    "coc.preferences.formatOnSave": true,
+  },
+  "[go]": {
+    "coc.preferences.formatOnSave": true,
+  },
+  "workspace.ignoredFiletypes": ["neoterm"],
 }
