@@ -3,8 +3,6 @@
 " - Avoid using standard Vim directory names like 'plugin'
 call plug#begin(stdpath('data') . '/plugged')
 
-Plug 'preservim/nerdtree'
-Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'ryanoasis/vim-devicons'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
@@ -14,6 +12,7 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'christoomey/vim-system-copy'
 Plug 'joshdick/onedark.vim'
+Plug 'tpope/vim-fugitive'
 
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()
@@ -122,17 +121,6 @@ let g:airline_theme='simple'
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#coc#enabled = 1
 
-" ################ NERDTREE ##################
-map <C-e> :NERDTreeToggle<CR>
-let NERDTreeQuitOnOpen = 1
-" close vim if the only window left open is a NERDTree<Paste>
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-" Automatically delete the buffer of the file you just deleted with NerdTree:
-let NERDTreeAutoDeleteBuffer = 1
-let NERDTreeShowHidden=1
-
-noremap <Leader>e :NERDTreeFind<cr>
-
 " ################ fzf ##################
 nnoremap <C-p> :Files<CR>
 nnoremap <A-p> :GFiles<CR>
@@ -143,7 +131,7 @@ nnoremap <C-l> :Buffers<Cr>
 let g:neoterm_default_mod = ':botright'
 
 " ################ COC Completion-with sources ##################
-let g:coc_global_extensions = ['coc-prettier', 'coc-pairs', 'coc-html', 'coc-git', 'coc-eslint', 'coc-tsserver', 'coc-rust-analyzer', 'coc-json']
+let g:coc_global_extensions = ['coc-prettier', 'coc-pairs', 'coc-html', 'coc-git', 'coc-eslint', 'coc-tsserver', 'coc-rust-analyzer', 'coc-json', 'coc-explorer']
 
 " Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
 " delays and poor user experience.
@@ -303,6 +291,9 @@ nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
 " react setting for coc.nvim
 autocmd BufNewFile,BufRead *.tsx let b:tsx_ext_found = 1
 autocmd BufNewFile,BufRead *.tsx set filetype=typescript.tsx
+
+" coc-explorer alternative nerdtree
+map <C-e> <Cmd>CocCommand explorer<CR>
 
 " golang settings
 " Add missing imports on save
