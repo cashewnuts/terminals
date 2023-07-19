@@ -1,48 +1,15 @@
-# 環境設定
-vim(neovim)、tmux等のターミナル環境を統一するためのリポジトリ
-
-# 使い方
-## clone 
-```bash
-git clone https://github.com/cashewnuts/terminals.git
-cd terminals
-```
-
-## vim
-
-シンボリックリンクを設定する。
-```bash
-ln -s `pwd`/nvim ~/.config/
-```
-
-nvimを開いて以下のコマンドを実行する。
-```
-:call dein#install()
-```
-
-## tmux
-
-シンボリックリンクを設定する。
-```bash
-ln -s `pwd`/tmux/.tmux.conf ~
-```
-
-Installation with [Tmux Plugin Manager](https://github.com/tmux-plugins/tpm) (recommended)
-
-Hit prefix + I to fetch the plugin and source it. You should now be able to use the plugin.
-
-# vim (neovim)のプラグイン環境
-
-Install Coc Plugins
+# terminal environment setups
 
 ```bash
-# Install neovim
-sudo npm i -g neovim
-pip install --user --upgrade pynvim
 
-# In neovim window
-:CocInstall coc-tsserver coc-eslint coc-prettier coc-python coc-html coc-css coc-pairs coc-snippets coc-tabnine coc-git coc-emmet coc-json
+./link-files.sh
+./install-command.sh
+./install-oh-my-zsh.sh
+./install-fonts.sh
+./install-anyenv.sh
+
+
+# install powerlevel manually
+git clone --depth=1 https://github.com/romkatv/powerlevel10k.git "$ZSH_CUSTOM/themes/powerlevel10k"
+
 ```
-
-# tmuxのプラグイン環境
-

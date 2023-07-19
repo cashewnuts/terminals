@@ -83,10 +83,7 @@ plugins=(
   # Advanced
   aws
   docker
-  docker-compose
-  kubectl
-  sfdx
-  wp-cli
+  direnv
 )
 
 source $ZSH/oh-my-zsh.sh
