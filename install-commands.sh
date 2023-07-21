@@ -5,6 +5,7 @@ sudo apt install -y \
   neovim \
   rsync \
   fzf \
+  htop \
   ripgrep \
   zsh \
   ffmpeg \
