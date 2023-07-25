@@ -7,6 +7,7 @@ sudo apt install -y \
   fzf \
   htop \
   ripgrep \
+  zip \
   zsh \
   ffmpeg \
   trash-cli \
